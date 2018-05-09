@@ -13,7 +13,7 @@ public class NotesActivity extends AppCompatActivity {
 
     Button buttonBack;
     EditText editTextTitles, editTextNotes, editTextDate;
-    NoteDataSource noteDataSource;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,7 +21,7 @@ public class NotesActivity extends AppCompatActivity {
         setContentView(R.layout.activity_notes);
 
         Bundle bundle = getIntent().getExtras();
-        Notes notes = (Notes)   bundle.getSerializable("Notes");
+
 
         // link each editText variable to the xml layout
         editTextTitles = (EditText) findViewById(R.id.editTextTitles);
@@ -29,9 +29,9 @@ public class NotesActivity extends AppCompatActivity {
         editTextDate = (EditText) findViewById(R.id.editTextDate);
 
 
-        editTextTitles.setText(notes.getTitles());
-        editTextNotes.setText(notes.getNotes());
-        editTextDate.setText(notes.getDateCaught());
+        editTextTitles.setText("");
+        editTextNotes.setText("");
+        editTextDate.setText("");
 
     }
 

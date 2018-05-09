@@ -20,32 +20,23 @@ public class MainActivity extends AppCompatActivity {
 
     Button buttonAdd, buttonDetails, buttonDelete;            // two button widgets
     ListView listViewNote;                      // listview to display all the note in the database
-    NoteDataSource noteDataSource;              // provides interaction to the SQLite note table
-    ArrayAdapter<Notes> noteAdapter;
-    List<Notes> noteList;
-    int positionSelected;
-    Notes noteSelected;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        noteDataSource = new NoteDataSource(this);          // set up the note data source
-        noteDataSource.open();                              // open up this data source--close before we leave
 
         // Set up the listVeiw to display all the note using a custam adapter
         listViewNote = (ListView) findViewById(R.id.ListViewNote);
-        noteList = noteDataSource.getAllNote();              // Get the list of note from the database
-        // Instantiate a custom adapter for displaying each note
-        noteAdapter = new NoteAdapter(this, android.R.layout.simple_list_item_single_choice, noteList);
+
         // Apply the adapter to the list
-        listViewNote.setAdapter(noteAdapter);
+
         listViewNote.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> adapter, View parent,
                                     int position, long id) {
-                positionSelected = position;
-                Log.d("MAIN", "Note selected at position " + positionSelected);
+
             }
         });
 
@@ -79,16 +70,14 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onResume() {
-        // re-open the database after a resume
-        noteDataSource.open();
+      
         Log.d("MAIN", "onResume");
         super.onResume();
     }
 
     @Override
     protected void onPause() {
-        // close the database when the app goes into the background incase it doesn't come back
-        noteDataSource.close();
+
         Log.d("MAIN", "onPause");
         super.onPause();
     }

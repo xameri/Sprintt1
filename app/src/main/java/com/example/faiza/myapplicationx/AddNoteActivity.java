@@ -14,15 +14,14 @@ public class AddNoteActivity extends AppCompatActivity {
 
     Button buttonSave;
     EditText editTextTitles, editTextNotes, editTextDate;
-    NoteDataSource noteDataSource;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_note);
 
-        noteDataSource = new NoteDataSource(this);
-        noteDataSource.open();
+
 
         // link each editText variable to the xml layout
         editTextTitles = (EditText) findViewById(R.id.editTextTitles);
@@ -55,13 +54,13 @@ public class AddNoteActivity extends AppCompatActivity {
 
     @Override
     protected void onResume() {
-        noteDataSource.open();
+
         super.onResume();
     }
 
     @Override
     protected void onPause() {
-        noteDataSource.close();
+
         super.onPause();
     }
 }
