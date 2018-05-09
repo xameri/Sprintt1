@@ -18,7 +18,7 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
-    Button buttonAdd, buttonDetails, buttonDelete;            // two button widgets
+   
     ListView listViewNote;                      // listview to display all the note in the database
 
 
@@ -30,8 +30,6 @@ public class MainActivity extends AppCompatActivity {
 
         // Set up the listVeiw to display all the note using a custam adapter
         listViewNote = (ListView) findViewById(R.id.ListViewNote);
-
-        // Apply the adapter to the list
 
         listViewNote.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> adapter, View parent,
