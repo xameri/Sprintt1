@@ -1,5 +1,5 @@
 package com.example.faiza.myapplicationx;
-
+// I am here commiting Sprint 1
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
